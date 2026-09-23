@@ -1,4 +1,5 @@
 from models.character import Character
+from models.enemy import Enemy
 
 def show_main_menu():
     print("""
@@ -79,3 +80,26 @@ def show_game_menu():
         break
 
     return user_choice
+
+def show_character_menu(character):
+    print(f"""
+        ╔══════════════════════════════════════════════╗
+                Name: {character.name}
+                Age: {character.age}
+                Health: {character.health}/{character.max_health}
+                Hunger: {character.hunger}/100
+                Attack Power: {character.attack_power}
+                Defense: {character.defense}
+                Inventory: {[item.name for item in character.inventory]}
+        ╚══════════════════════════════════════════════╝
+    """)
+
+def show_enemy_info(enemy):
+        print(f"""
+        ══════════════════════════════════════════════
+            Enemy: {enemy.type}
+            Health: {enemy.health}/{enemy.max_health}
+            Attack Power: {enemy.attack_power}
+            Defense: {enemy.defense}
+        ══════════════════════════════════════════════
+    """)

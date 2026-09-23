@@ -6,7 +6,7 @@ class Character:
         self.max_health = 200
         self.inventory = []
         self.hunger = 100
-        self.attack_power = 5
+        self.attack_power = 15
         self.defense = 5
         self.weapon = None
         self.armor = None
@@ -16,7 +16,7 @@ class Character:
         if self.weapon:
             damage += self.weapon.damage
         target.take_damage(damage)
-        return print(f"{self.name} attacks {target.name} for {damage} damage!")
+        return print(f"{self.name} attacks {target.type} for {damage} damage!")
 
     def take_damage(self, damage):
         damage -= self.defense
