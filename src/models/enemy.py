@@ -8,8 +8,8 @@ class Enemy:
 
     def attack(self, target):
         damage = self.attack_power
+        print(f"{self.type} attacks {target.name} for {damage} damage!")
         target.take_damage(damage)
-        return print(f"{self.type} attacks {target.name} for {damage} damage!")
 
     def take_damage(self, damage):
         damage -= self.defense
@@ -18,6 +18,8 @@ class Enemy:
         self.health -= damage
         if self.health < 0:
             self.health = 0
+            print('Enemy is dead!')
+            
         return print(f"{self.type} takes {damage} damage! Health is now {self.health}/{self.max_health}.")
 
 

@@ -13,13 +13,13 @@ if user_choice == "1":
     else: #character created successfully
         while True:
             user_choice = show_game_menu()
-            if user_choice == "1":
+            if user_choice == 1:
                 show_character_menu(character)
 
-            elif user_choice == "2":
+            elif user_choice == 2:
                 explore(character)
 
-            elif user_choice == "5":
+            elif user_choice == 5:
                 if confirm_exit():
                     break
 

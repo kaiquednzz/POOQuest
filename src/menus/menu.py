@@ -1,5 +1,6 @@
 from models.character import Character
 from models.enemy import Enemy
+from utils import confirm_int
 
 def show_main_menu():
     print("""
@@ -72,9 +73,9 @@ def show_game_menu():
         """)
 
     while True:
-        user_choice = input("Enter your choice: ")
+        user_choice = confirm_int()
 
-        if user_choice not in ["1", "2", "3", "4", "5"]:
+        if user_choice not in [1, 2, 3, 4, 5]:
             print("Invalid choice. Please try again.")
             continue
         break
@@ -103,3 +104,25 @@ def show_enemy_info(enemy):
             Defense: {enemy.defense}
         ══════════════════════════════════════════════
     """)
+
+
+def show_combat_menu():
+    print("""
+        ╔══════════════════════════════════════════════╗
+        ║                                              ║
+        ║       [1]  Attack                            ║
+        ║       [2]  Defend                            ║
+        ║       [3]  Run away                          ║
+        ║       [4]  Inventory                         ║
+        ║       [5]  Give Up                           ║
+        ║                                              ║
+        ╚══════════════════════════════════════════════╝
+    """)
+
+    while True:
+        choice = confirm_int()
+        if choice not in [1, 2, 3, 4, 5]:
+            print("Invalid input. Please enter a valid integer.")
+            continue
+
+        return choice

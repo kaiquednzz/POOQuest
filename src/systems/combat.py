@@ -1,3 +1,5 @@
+from menus.menu import show_combat_menu
+
 def start_combat(character, enemy):
     if character.health <= 0:
         print('You are dead!')
@@ -9,13 +11,13 @@ def start_combat(character, enemy):
 
     else:
         while True:
-            character.attack(enemy)
-            if enemy.health <= 0:
-                print('The enemy is dead!')
-                return "victory"
+            if enemy.health > 0:
+                choice = show_combat_menu()
+                if choice == 1:
+                    character.attack(enemy)
+                    if enemy.health <= 0:
+                        return "victory"
 
-            else:
-                enemy.attack(character)
-                if character.health <= 0:
-                    print('You are dead!')
-                    return "defeat"
+                    enemy.attack(character)
+                    if character.health <= 0:
+                        return "defeat"

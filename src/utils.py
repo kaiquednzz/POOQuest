@@ -15,7 +15,7 @@ def confirm_exit():
 def confirm_int():
     while True:
         try:
-            value = int(input("Enter a number: "))
+            value = int(input("Enter your choice: "))
             return value
         except ValueError:
             print("Invalid input. Please enter a valid integer.")

@@ -15,8 +15,9 @@ class Character:
         damage = self.attack_power
         if self.weapon:
             damage += self.weapon.damage
+
+        print(f"{self.name} attacks {target.type} for {damage} damage!")
         target.take_damage(damage)
-        return print(f"{self.name} attacks {target.type} for {damage} damage!")
 
     def take_damage(self, damage):
         damage -= self.defense
@@ -25,6 +26,8 @@ class Character:
         self.health -= damage
         if self.health < 0:
             self.health = 0
+            print('You are dead!')
+
         return print(f"{self.name} takes {damage} damage! Health is now {self.health}/{self.max_health}.")
 
     def eat(self, food):
