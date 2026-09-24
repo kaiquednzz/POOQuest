@@ -1,5 +1,5 @@
 class Enemy:
-    def __init__(self, type, max_health, attack_power, defense):
+    def __init__(self, type, max_health, attack_power, defense, defending=False):
         self.type = type
         self.max_health = max_health
         self.health = self.max_health
@@ -12,16 +12,26 @@ class Enemy:
         target.take_damage(damage)
 
     def take_damage(self, damage):
-        damage -= self.defense
+        new_defense = self.defense
+        if self.defending:
+            new_defense *= 2
+
+        damage -= new_defense
         if damage < 0:
             damage = 0
         self.health -= damage
+
         if self.health < 0:
             self.health = 0
             print('Enemy is dead!')
-            
+
+        self.defending = False
         return print(f"{self.type} takes {damage} damage! Health is now {self.health}/{self.max_health}.")
 
+    def defend(self):
+        self.defending = True
+
+    def enemy_choice(self):
 
 enemies = [
     {

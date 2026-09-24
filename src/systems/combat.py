@@ -18,6 +18,13 @@ def start_combat(character, enemy):
                     if enemy.health <= 0:
                         return "victory"
 
+                
+
+                elif choice == 2:
+                    character.defend()
+                    if enemy.health <= 0: #possible future reflection effect
+                        return "victory"
+
                     enemy.attack(character)
                     if character.health <= 0:
                         return "defeat"
