@@ -1,3 +1,5 @@
+from random import choice
+
 class Enemy:
     def __init__(self, type, max_health, attack_power, defense, defending=False):
         self.type = type
@@ -5,6 +7,7 @@ class Enemy:
         self.health = self.max_health
         self.attack_power = attack_power
         self.defense = defense
+        self.defending = defending
 
     def attack(self, target):
         damage = self.attack_power
@@ -25,13 +28,23 @@ class Enemy:
             self.health = 0
             print('Enemy is dead!')
 
-        self.defending = False
         return print(f"{self.type} takes {damage} damage! Health is now {self.health}/{self.max_health}.")
 
     def defend(self):
         self.defending = True
+        print(f"{self.type} defends!")
 
     def enemy_choice(self):
+        options = [
+            "Attack",
+            "Defend",
+        ]
+
+        random_action = choice(options)
+        if random_action == "Attack":
+            return 'attack'
+        elif random_action == "Defend":
+            return 'defend'
 
 enemies = [
     {

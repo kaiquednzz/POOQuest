@@ -22,6 +22,7 @@ class Character:
 
     def defend(self):
         self.defending = True
+        print(f"{self.name} defends!")
 
     def take_damage(self, damage):
         new_defense = self.defense
@@ -37,11 +38,8 @@ class Character:
             self.health = 0
             print('You are dead!')
 
-        self.defending = False
         return print(f"{self.name} takes {damage} damage! Health is now {self.health}/{self.max_health}.")
 
-    def run_away(self):
-        
 
     def eat(self, food):
         if food in self.inventory:
